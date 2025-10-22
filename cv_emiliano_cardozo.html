@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Emiliano Cardozo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .photo-container {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.3);
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-placeholder {
+            font-size: 80px;
+            color: white;
+        }
+
+        .header-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .header-info h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .header-info .subtitle {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+        }
+
+        .contact-item i {
+            width: 24px;
+            text-align: center;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .download-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: #2c3e50;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            z-index: 10;
+            cursor: pointer;
+            border: none;
+        }
+
+        .download-btn:hover {
+            background: #ecf0f1;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            padding: 50px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: #3498db;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            border-left-color: #667eea;
+            padding-left: 25px;
+        }
+
+        .item-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .item-subtitle {
+            font-size: 15px;
+            color: #7f8c8d;
+            margin-bottom: 8px;
+        }
+
+        .item-period {
+            font-size: 14px;
+            color: #95a5a6;
+            font-style: italic;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .languages-list, .hobbies-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .language-tag, .hobby-tag {
+            background: #ecf0f1;
+            color: #2c3e50;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .language-tag:hover, .hobby-tag:hover {
+            background: #3498db;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .availability-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        .availability-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .availability-item i {
+            color: #3498db;
+            width: 20px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-info h1 {
+                font-size: 32px;
+            }
+
+            .download-btn {
+                position: static;
+                margin: 20px auto 0;
+            }
+
+            .photo-container {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="download-btn" onclick="downloadPDF()">
+                <i class="fas fa-download"></i>
+                Descargar CV PDF
+            </button>
+            
+            <div class="header-content">
+                <div class="photo-container">
+                    <!-- Reemplazar con: <img src="foto.jpg" alt="Emiliano Cardozo" style="width: 100%; height: 100%; object-fit: cover;"> -->
+                    <i class="fas fa-user photo-placeholder"></i>
+                </div>
+                
+                <div class="header-info">
+                    <h1>Emiliano Cardozo</h1>
+                    <p class="subtitle">Estudiante | Desarrollador de Tecnología</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Av. Eva Perón 2501, Trincheras de San José, CP 3300, Posadas, Misiones</span>
+                        </div>
+                        
+                        <a href="https://wa.me/qr/RORFTYSOSMHNH1" target="_blank" class="whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i>
+                            Enviar mensaje por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-briefcase"></i>
+                    Experiencia Profesional
+                </h2>
+                
+                <div class="experience-item">
+                    <div class="item-title">Alumno</div>
+                    <div class="item-subtitle">Instituto Alfa</div>
+                    <div class="item-period">2015 - Actualidad</div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-title">Desarrollador de Tecnología</div>
+                    <div class="item-subtitle"></div>
+                    <div class="item-period">2018 - 2024</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Educación
+                </h2>
+                
+                <div class="education-item">
+                    <div class="item-title">Comercio Internacional y Despacho Aduanero</div>
+                </div>
+                
+                <h3 style="font-size: 18px; color: #2c3e50; margin-top: 25px; margin-bottom: 15px;">Capacitaciones</h3>
+                
+                <div class="education-item">
+                    <div class="item-title">Curso de Inteligencia Artificial</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="item-title">Taller de Neurociencias</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="item-title">Taller de LaTeX e Investigación Científica</div>
+                </div>
+            </div>
+
+            <div class="section full-width">
+                <h2 class="section-title">
+                    <i class="fas fa-star"></i>
+                    Habilidades
+                </h2>
+                
+                <div class="skills-grid">
+                    <div class="skill-item">Codificación</div>
+                    <div class="skill-item">Oratoria</div>
+                    <div class="skill-item">Escritura</div>
+                    <div class="skill-item">Cocina Mediterránea</div>
+                    <div class="skill-item">Cócteles</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-language"></i>
+                    Idiomas
+                </h2>
+                
+                <div class="languages-list">
+                    <div class="language-tag"><strong>Español</strong> - Nativo</div>
+                    <div class="language-tag"><strong>Portugués</strong> - Intermedio</div>
+                    <div class="language-tag"><strong>Inglés</strong> - Intermedio</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-clock"></i>
+                    Disponibilidad
+                </h2>
+                
+                <div class="availability-info">
+                    <div class="availability-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span><strong>Horario:</strong> Lunes a Viernes desde las 18hs</span>
+                    </div>
+                    <div class="availability-item">
+                        <i class="fas fa-car"></i>
+                        <span><strong>Transporte:</strong> No cuento con vehículo propio</span>
+                    </div>
+                    <div class="availability-item">
+                        <i class="fas fa-home"></i>
+                        <span><strong>Radicación:</strong> No disponible para mudanza</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section full-width">
+                <h2 class="section-title">
+                    <i class="fas fa-heart"></i>
+                    Hobbies e Intereses
+                </h2>
+                
+                <div class="hobbies-list">
+                    <div class="hobby-tag"><i class="fas fa-music"></i> Escuchar Música</div>
+                    <div class="hobby-tag"><i class="fas fa-guitar"></i> Tocar Guitarra</div>
+                    <div class="hobby-tag"><i class="fas fa-swimmer"></i> Natación</div>
+                    <div class="hobby-tag"><i class="fas fa-basketball-ball"></i> Básquetbol</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            // Reemplazar con la URL de tu PDF en GitHub
+            // Ejemplo: window.location.href = 'https://raw.githubusercontent.com/tu-usuario/tu-repo/main/cv-emiliano-cardozo.pdf';
+            window.location.href = 'cv-emiliano-cardozo.pdf';
+        }
+
+        // Animación de entrada para las secciones
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
